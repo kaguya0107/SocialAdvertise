@@ -7,7 +7,12 @@ function Pill({
   onClick,
   children,
   color,
-}: { active: boolean; onClick: () => void; children: React.ReactNode; color?: string }) {
+}: {
+  active: boolean;
+  onClick: () => void;
+  children: React.ReactNode;
+  color?: string;
+}) {
   return (
     <button
       onClick={onClick}
@@ -23,7 +28,15 @@ function Pill({
   );
 }
 
-function Select({ icon: Icon, label, value }: { icon: React.ElementType; label: string; value: string }) {
+function Select({
+  icon: Icon,
+  label,
+  value,
+}: {
+  icon: React.ElementType;
+  label: string;
+  value: string;
+}) {
   return (
     <button className="flex items-center gap-2 rounded-lg border border-border/60 bg-secondary/30 px-3 py-2 text-xs text-foreground hover:bg-secondary/50">
       <Icon className="h-3.5 w-3.5 text-muted-foreground" />
@@ -55,7 +68,12 @@ export function Filters() {
             <Filter className="h-3.5 w-3.5" /> 媒体
           </span>
           {platforms.map((p) => (
-            <Pill key={p} active={active.includes(p)} onClick={() => toggle(p)} color={platformColors[p]}>
+            <Pill
+              key={p}
+              active={active.includes(p)}
+              onClick={() => toggle(p)}
+              color={platformColors[p]}
+            >
               {p}
             </Pill>
           ))}

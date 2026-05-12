@@ -23,7 +23,12 @@ export function Heatmap() {
       <div className="grid" style={{ gridTemplateColumns: "1.6fr repeat(3, 1fr)" }}>
         <div />
         {heatmap.cols.map((c) => (
-          <div key={c} className="px-2 pb-2 text-center text-[11px] font-medium text-muted-foreground">{c}</div>
+          <div
+            key={c}
+            className="px-2 pb-2 text-center text-[11px] font-medium text-muted-foreground"
+          >
+            {c}
+          </div>
         ))}
         {heatmap.rows.map((r, ri) => (
           <Fragment key={r}>
@@ -36,7 +41,10 @@ export function Heatmap() {
                 <div key={ci} className="p-1">
                   <div
                     className="flex h-12 items-center justify-center rounded-lg text-[12px] font-semibold text-foreground/90 transition hover:scale-[1.03]"
-                    style={{ background: bg, boxShadow: n > 0.7 ? "0 0 24px -6px oklch(0.78 0.18 155 / 0.5)" : undefined }}
+                    style={{
+                      background: bg,
+                      boxShadow: n > 0.7 ? "0 0 24px -6px oklch(0.78 0.18 155 / 0.5)" : undefined,
+                    }}
                   >
                     {v}%
                   </div>

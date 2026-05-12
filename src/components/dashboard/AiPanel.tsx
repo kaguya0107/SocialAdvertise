@@ -47,7 +47,9 @@ export function AiPanel() {
               className="rounded-xl border border-border/60 bg-secondary/20 p-3 transition hover:bg-secondary/40"
             >
               <div className="mb-1.5 flex items-center justify-between">
-                <span className={`inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[10px] font-semibold ${t.cls}`}>
+                <span
+                  className={`inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[10px] font-semibold ${t.cls}`}
+                >
                   <Icon className="h-3 w-3" /> {ins.tag}
                 </span>
                 <span className="text-[10px] text-muted-foreground">
@@ -75,7 +77,10 @@ export function AiPanel() {
         </div>
         <div className="mt-2 flex flex-wrap gap-1.5">
           {["予算最適配分", "疲弊クリエイティブ", "勝ちオーディエンス"].map((s) => (
-            <button key={s} className="rounded-full border border-border/60 px-2 py-0.5 text-[10px] text-muted-foreground hover:text-foreground">
+            <button
+              key={s}
+              className="rounded-full border border-border/60 px-2 py-0.5 text-[10px] text-muted-foreground hover:text-foreground"
+            >
               {s}
             </button>
           ))}

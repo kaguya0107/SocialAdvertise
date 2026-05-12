@@ -20,7 +20,10 @@ export function LiveFeed() {
       setNow(new Date());
       setItems((prev) => {
         const head = prev[0];
-        return [{ ...head, t: "now" }, ...prev.slice(0, 4).map((e, i) => ({ ...e, t: `${(i + 1) * 14}s` }))];
+        return [
+          { ...head, t: "now" },
+          ...prev.slice(0, 4).map((e, i) => ({ ...e, t: `${(i + 1) * 14}s` })),
+        ];
       });
     }, 5000);
     return () => clearInterval(id);

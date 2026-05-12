@@ -44,7 +44,9 @@ export function DashboardHome() {
           <section className="flex flex-wrap items-end justify-between gap-4">
             <div>
               <div className="flex items-center gap-2 text-[11px] text-muted-foreground">
-                <span className="rounded-full border border-border/60 px-2 py-0.5">Beauty Vertical</span>
+                <span className="rounded-full border border-border/60 px-2 py-0.5">
+                  Beauty Vertical
+                </span>
                 <span>·</span>
                 <span>{todayLabel ?? "—"}</span>
               </div>
@@ -52,7 +54,8 @@ export function DashboardHome() {
                 おはようございます、<span className="gradient-text">経営チーム</span>へ。
               </h1>
               <p className="mt-1 text-sm text-muted-foreground">
-                今日の広告パフォーマンスは <span className="font-medium text-[oklch(0.82_0.18_155)]">+18.4%</span>{" "}
+                今日の広告パフォーマンスは{" "}
+                <span className="font-medium text-[oklch(0.82_0.18_155)]">+18.4%</span>{" "}
                 改善。AIが3件の最適化提案を準備しました。
               </p>
             </div>

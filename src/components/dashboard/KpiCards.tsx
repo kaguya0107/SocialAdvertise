@@ -20,9 +20,7 @@ export function KpiCards() {
 
   useEffect(() => {
     const id = setInterval(() => {
-      setData((prev) =>
-        prev.map((k) => ({ ...k, value: jitter(k.value, k.raw) }))
-      );
+      setData((prev) => prev.map((k) => ({ ...k, value: jitter(k.value, k.raw) })));
     }, 2200);
     return () => clearInterval(id);
   }, []);
