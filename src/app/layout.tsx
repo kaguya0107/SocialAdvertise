@@ -8,13 +8,11 @@ const OG_IMAGE =
 
 export const metadata: Metadata = {
   title: "Lumina Ads — AI広告統合ダッシュボード",
-  description:
-    "Meta・TikTok・Google広告をリアルタイム統合分析。美容サロン向けAI広告分析SaaS。",
+  description: "Meta・TikTok・Google広告をリアルタイム統合分析。美容サロン向けAI広告分析SaaS。",
   authors: [{ name: "Lumina Ads" }],
   openGraph: {
     title: "Lumina Ads — AI広告統合ダッシュボード",
-    description:
-      "Meta・TikTok・Google広告をリアルタイム統合分析。美容サロン向けAI広告分析SaaS。",
+    description: "Meta・TikTok・Google広告をリアルタイム統合分析。美容サロン向けAI広告分析SaaS。",
     type: "website",
     images: [{ url: OG_IMAGE }],
   },
@@ -22,8 +20,7 @@ export const metadata: Metadata = {
     card: "summary",
     site: "@Lovable",
     title: "Lumina Ads — AI広告統合ダッシュボード",
-    description:
-      "Meta・TikTok・Google広告をリアルタイム統合分析。美容サロン向けAI広告分析SaaS。",
+    description: "Meta・TikTok・Google広告をリアルタイム統合分析。美容サロン向けAI広告分析SaaS。",
     images: [OG_IMAGE],
   },
 };

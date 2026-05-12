@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect } from "react";
 
 export default function GlobalError({
@@ -29,11 +30,15 @@ export default function GlobalError({
           }}
         >
           <div style={{ maxWidth: "28rem", width: "100%", textAlign: "center", padding: "2rem" }}>
-            <h1 style={{ fontSize: "1.25rem", margin: "0 0 0.5rem" }}>This page didn&apos;t load</h1>
+            <h1 style={{ fontSize: "1.25rem", margin: "0 0 0.5rem" }}>
+              This page didn&apos;t load
+            </h1>
             <p style={{ color: "#4b5563", margin: "0 0 1.5rem" }}>
               Something went wrong on our end. You can try refreshing or head back home.
             </p>
-            <div style={{ display: "flex", gap: "0.5rem", justifyContent: "center", flexWrap: "wrap" }}>
+            <div
+              style={{ display: "flex", gap: "0.5rem", justifyContent: "center", flexWrap: "wrap" }}
+            >
               <button
                 type="button"
                 onClick={() => reset()}
@@ -49,7 +54,7 @@ export default function GlobalError({
               >
                 Try again
               </button>
-              <a
+              <Link
                 href="/"
                 style={{
                   padding: "0.5rem 1rem",
@@ -65,7 +70,7 @@ export default function GlobalError({
                 }}
               >
                 Go home
-              </a>
+              </Link>
             </div>
           </div>
         </div>

@@ -41,11 +41,16 @@ export function Highlights() {
             <div className="flex items-center gap-2">
               <div
                 className="flex h-7 w-7 items-center justify-center rounded-lg"
-                style={{ background: `color-mix(in oklab, ${it.color} 20%, transparent)`, color: it.color }}
+                style={{
+                  background: `color-mix(in oklab, ${it.color} 20%, transparent)`,
+                  color: it.color,
+                }}
               >
                 <Icon className="h-3.5 w-3.5" />
               </div>
-              <span className="text-[10px] uppercase tracking-wider text-muted-foreground">{it.label}</span>
+              <span className="text-[10px] uppercase tracking-wider text-muted-foreground">
+                {it.label}
+              </span>
             </div>
             <div className="mt-2 truncate text-sm font-semibold">{it.value}</div>
             <div className="mt-0.5 truncate text-[11px] text-muted-foreground">{it.sub}</div>

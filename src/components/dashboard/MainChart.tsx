@@ -1,15 +1,23 @@
-import { Area, AreaChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
+import {
+  Area,
+  AreaChart,
+  CartesianGrid,
+  ResponsiveContainer,
+  Tooltip,
+  XAxis,
+  YAxis,
+} from "recharts";
 
 const days = ["月", "火", "水", "木", "金", "土", "日"];
 const data = days.map((d, i) => ({
   day: d,
-  Meta:   140 + Math.sin(i) * 38 + i * 8,
+  Meta: 140 + Math.sin(i) * 38 + i * 8,
   TikTok: 110 + Math.cos(i / 1.4) * 42 + i * 10,
-  Google:  90 + Math.sin(i / 1.8) * 30 + i * 4,
+  Google: 90 + Math.sin(i / 1.8) * 30 + i * 4,
 }));
 
 const series = [
-  { key: "Meta",   color: "oklch(0.68 0.20 250)" },
+  { key: "Meta", color: "oklch(0.68 0.20 250)" },
   { key: "TikTok", color: "oklch(0.72 0.22 350)" },
   { key: "Google", color: "oklch(0.78 0.17 75)" },
 ];
@@ -42,8 +50,18 @@ export function MainChart() {
                 </linearGradient>
               ))}
             </defs>
-            <CartesianGrid stroke="oklch(0.32 0.025 270 / 0.4)" strokeDasharray="3 4" vertical={false} />
-            <XAxis dataKey="day" stroke="oklch(0.68 0.025 260)" fontSize={11} tickLine={false} axisLine={false} />
+            <CartesianGrid
+              stroke="oklch(0.32 0.025 270 / 0.4)"
+              strokeDasharray="3 4"
+              vertical={false}
+            />
+            <XAxis
+              dataKey="day"
+              stroke="oklch(0.68 0.025 260)"
+              fontSize={11}
+              tickLine={false}
+              axisLine={false}
+            />
             <YAxis stroke="oklch(0.68 0.025 260)" fontSize={11} tickLine={false} axisLine={false} />
             <Tooltip
               contentStyle={{

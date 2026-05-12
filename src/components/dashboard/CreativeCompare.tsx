@@ -13,20 +13,26 @@ function formatYen(n: number) {
   return "¥" + n.toLocaleString();
 }
 
-function bestPlatform(c: typeof creatives[number]) {
+function bestPlatform(c: (typeof creatives)[number]) {
   let best: Platform = "Meta";
   let bestRoas = -Infinity;
   for (const p of platforms) {
-    if (c.metrics[p].roas > bestRoas) { bestRoas = c.metrics[p].roas; best = p; }
+    if (c.metrics[p].roas > bestRoas) {
+      bestRoas = c.metrics[p].roas;
+      best = p;
+    }
   }
   return best;
 }
 
-function worstPlatform(c: typeof creatives[number]) {
+function worstPlatform(c: (typeof creatives)[number]) {
   let worst: Platform = "Meta";
   let worstCpa = -Infinity;
   for (const p of platforms) {
-    if (c.metrics[p].cpa > worstCpa) { worstCpa = c.metrics[p].cpa; worst = p; }
+    if (c.metrics[p].cpa > worstCpa) {
+      worstCpa = c.metrics[p].cpa;
+      worst = p;
+    }
   }
   return worst;
 }
@@ -42,8 +48,12 @@ export function CreativeCompare() {
           </p>
         </div>
         <div className="hidden items-center gap-2 text-[11px] text-muted-foreground md:flex">
-          <span className="flex items-center gap-1"><Crown className="h-3 w-3 text-[oklch(0.82_0.17_75)]" /> Best</span>
-          <span className="flex items-center gap-1"><AlertTriangle className="h-3 w-3 text-[oklch(0.78_0.20_25)]" /> Worst CPA</span>
+          <span className="flex items-center gap-1">
+            <Crown className="h-3 w-3 text-[oklch(0.82_0.17_75)]" /> Best
+          </span>
+          <span className="flex items-center gap-1">
+            <AlertTriangle className="h-3 w-3 text-[oklch(0.78_0.20_25)]" /> Worst CPA
+          </span>
         </div>
       </div>
 
@@ -66,7 +76,11 @@ export function CreativeCompare() {
                 >
                   <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.35),transparent_60%)]" />
                   <div className="absolute bottom-1.5 left-1.5 flex items-center gap-1 rounded-md bg-black/40 px-1.5 py-0.5 text-[10px] text-white backdrop-blur">
-                    {c.type === "video" ? <Play className="h-2.5 w-2.5" /> : <ImageIcon className="h-2.5 w-2.5" />}
+                    {c.type === "video" ? (
+                      <Play className="h-2.5 w-2.5" />
+                    ) : (
+                      <ImageIcon className="h-2.5 w-2.5" />
+                    )}
                     {c.type === "video" ? "VIDEO" : "STATIC"}
                   </div>
                 </div>
@@ -95,23 +109,39 @@ export function CreativeCompare() {
                             isBest
                               ? "border-[oklch(0.82_0.17_75/0.5)] bg-[oklch(0.82_0.17_75/0.06)]"
                               : isWorst
-                              ? "border-[oklch(0.78_0.20_25/0.4)] bg-[oklch(0.78_0.20_25/0.05)]"
-                              : "border-border/60 bg-secondary/20"
+                                ? "border-[oklch(0.78_0.20_25/0.4)] bg-[oklch(0.78_0.20_25/0.05)]"
+                                : "border-border/60 bg-secondary/20"
                           }`}
                         >
                           <div className="flex items-center justify-between">
                             <div className="flex items-center gap-1.5 text-[11px] font-semibold">
-                              <span className="h-1.5 w-1.5 rounded-full" style={{ background: platformDot[p] }} />
+                              <span
+                                className="h-1.5 w-1.5 rounded-full"
+                                style={{ background: platformDot[p] }}
+                              />
                               {p}
                             </div>
                             {isBest && <Crown className="h-3 w-3 text-[oklch(0.82_0.17_75)]" />}
-                            {isWorst && <AlertTriangle className="h-3 w-3 text-[oklch(0.78_0.20_25)]" />}
+                            {isWorst && (
+                              <AlertTriangle className="h-3 w-3 text-[oklch(0.78_0.20_25)]" />
+                            )}
                           </div>
                           <div className="mt-1.5 grid grid-cols-2 gap-x-2 gap-y-1 text-muted-foreground">
-                            <div><span className="text-foreground/90 font-medium">{m.ctr}%</span> CTR</div>
-                            <div><span className="text-foreground/90 font-medium">{formatYen(m.cpa)}</span> CPA</div>
-                            <div><span className="text-foreground/90 font-medium">{m.cv}</span> CV</div>
-                            <div><span className="text-foreground/90 font-medium">{m.roas}%</span> ROAS</div>
+                            <div>
+                              <span className="text-foreground/90 font-medium">{m.ctr}%</span> CTR
+                            </div>
+                            <div>
+                              <span className="text-foreground/90 font-medium">
+                                {formatYen(m.cpa)}
+                              </span>{" "}
+                              CPA
+                            </div>
+                            <div>
+                              <span className="text-foreground/90 font-medium">{m.cv}</span> CV
+                            </div>
+                            <div>
+                              <span className="text-foreground/90 font-medium">{m.roas}%</span> ROAS
+                            </div>
                           </div>
                         </div>
                       );

@@ -55,7 +55,7 @@
   --popover-foreground: oklch(0.98 0.005 250);
 
   /* Electric violet primary */
-  --primary: oklch(0.72 0.20 295);
+  --primary: oklch(0.72 0.2 295);
   --primary-foreground: oklch(0.16 0.018 270);
 
   --secondary: oklch(0.27 0.025 270);
@@ -75,26 +75,27 @@
 
   --border: oklch(0.32 0.025 270 / 60%);
   --input: oklch(0.28 0.025 270);
-  --ring: oklch(0.72 0.20 295);
+  --ring: oklch(0.72 0.2 295);
 
   /* Brand accents */
-  --meta: oklch(0.68 0.20 250);     /* blue */
-  --tiktok: oklch(0.72 0.22 350);   /* pink */
-  --google: oklch(0.78 0.17 75);    /* amber */
+  --meta: oklch(0.68 0.2 250); /* blue */
+  --tiktok: oklch(0.72 0.22 350); /* pink */
+  --google: oklch(0.78 0.17 75); /* amber */
 
-  --chart-1: oklch(0.72 0.20 295);
+  --chart-1: oklch(0.72 0.2 295);
   --chart-2: oklch(0.78 0.16 200);
   --chart-3: oklch(0.72 0.22 350);
   --chart-4: oklch(0.78 0.17 75);
   --chart-5: oklch(0.78 0.18 155);
 
   /* Gradients & glow */
-  --gradient-primary: linear-gradient(135deg, oklch(0.72 0.20 295), oklch(0.78 0.16 200));
-  --gradient-aurora: radial-gradient(ellipse at top left, oklch(0.72 0.20 295 / 0.25), transparent 60%),
-                     radial-gradient(ellipse at top right, oklch(0.78 0.16 200 / 0.20), transparent 60%),
-                     radial-gradient(ellipse at bottom, oklch(0.72 0.22 350 / 0.18), transparent 60%);
-  --shadow-glow: 0 0 40px -10px oklch(0.72 0.20 295 / 0.45);
-  --shadow-elegant: 0 24px 60px -20px oklch(0.10 0.02 270 / 0.6);
+  --gradient-primary: linear-gradient(135deg, oklch(0.72 0.2 295), oklch(0.78 0.16 200));
+  --gradient-aurora:
+    radial-gradient(ellipse at top left, oklch(0.72 0.2 295 / 0.25), transparent 60%),
+    radial-gradient(ellipse at top right, oklch(0.78 0.16 200 / 0.2), transparent 60%),
+    radial-gradient(ellipse at bottom, oklch(0.72 0.22 350 / 0.18), transparent 60%);
+  --shadow-glow: 0 0 40px -10px oklch(0.72 0.2 295 / 0.45);
+  --shadow-elegant: 0 24px 60px -20px oklch(0.1 0.02 270 / 0.6);
 }
 
 @layer base {
@@ -102,7 +103,8 @@
     border-color: var(--color-border);
   }
 
-  html, body {
+  html,
+  body {
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-feature-settings: "cv11", "ss01", "ss03";
@@ -137,10 +139,17 @@
     inset: 0;
     border-radius: inherit;
     padding: 1px;
-    background: linear-gradient(135deg, oklch(0.72 0.20 295 / 0.6), oklch(0.78 0.16 200 / 0.3), transparent);
-    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    background: linear-gradient(
+      135deg,
+      oklch(0.72 0.2 295 / 0.6),
+      oklch(0.78 0.16 200 / 0.3),
+      transparent
+    );
+    -webkit-mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
     -webkit-mask-composite: xor;
-            mask-composite: exclude;
+    mask-composite: exclude;
     pointer-events: none;
   }
   .aurora-bg {
@@ -152,28 +161,59 @@
   .shadow-elegant {
     box-shadow: var(--shadow-elegant);
   }
-  .scrollbar-thin::-webkit-scrollbar { width: 6px; height: 6px; }
-  .scrollbar-thin::-webkit-scrollbar-thumb { background: var(--border); border-radius: 999px; }
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 999px;
+  }
 
   @keyframes pulse-dot {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.4; transform: scale(0.85); }
+    0%,
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.4;
+      transform: scale(0.85);
+    }
   }
-  .live-dot { animation: pulse-dot 1.6s ease-in-out infinite; }
+  .live-dot {
+    animation: pulse-dot 1.6s ease-in-out infinite;
+  }
 
   @keyframes shimmer {
-    0% { background-position: -200% 0; }
-    100% { background-position: 200% 0; }
+    0% {
+      background-position: -200% 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
   }
   .shimmer {
-    background: linear-gradient(90deg, transparent, color-mix(in oklab, var(--foreground) 8%, transparent), transparent);
+    background: linear-gradient(
+      90deg,
+      transparent,
+      color-mix(in oklab, var(--foreground) 8%, transparent),
+      transparent
+    );
     background-size: 200% 100%;
     animation: shimmer 2.4s linear infinite;
   }
 
   @keyframes float-slow {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-8px); }
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-8px);
+    }
   }
-  .float-slow { animation: float-slow 6s ease-in-out infinite; }
+  .float-slow {
+    animation: float-slow 6s ease-in-out infinite;
+  }
 }
